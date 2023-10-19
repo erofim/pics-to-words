@@ -20,45 +20,32 @@
     return (
       <section className="game">
         <ul className="cards">
-          <li className="card">
-            <span>Kannettava</span>
-          </li>
-          <li className="card">
-            <img src="img/photo-card-5.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card disabled">
-            <img src="img/photo-card-6.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card">
-            <img src="img/photo-card-1.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card">
-            <span>Vuode</span>
-          </li>
-          <li className="card">
-            <span>Talo</span>
-          </li>
-          <li className="card disabled">
-            <span>Koira</span>
-          </li>
-          <li className="card selected">
-            <span>Teekannu</span>
-          </li>
-          <li className="card">
-            <img src="img/photo-card-2.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card">
-            <img src="img/photo-card-3.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card">
-            <img src="img/photo-card-4.jpg" width="185" height="100" alt=""/>
-          </li>
-          <li className="card">
-            <span>Kuuloke</span>
-          </li>
+          <Card type="text" text="Kannettava"/>
+          <Card type="image" url="./img/photo-card-5.jpg"/>
+          <Card type="image" url="./img/photo-card-6.jpg"/>
+          <Card type="image" url="./img/photo-card-1.jpg"/>
+          <Card type="text" text="Vuode"/>
+          <Card type="text" text="Talo"/>
+          <Card type="text" text="Koira"/>
+          <Card type="text" text="Teekannu"/>
+          <Card type="image" url="./img/photo-card-2.jpg"/>
+          <Card type="image" url="./img/photo-card-3.jpg"/>
+          <Card type="image" url="./img/photo-card-4.jpg"/>
+          <Card type="text" text="Kuuloke"/>
         </ul>
       </section>
     );
+  }
+
+  function Card({type, text, url}) {
+    const content = type === 'image'
+      ? <img src={url} width="185" height="100" alt=""/>
+      : <span>{text}</span>
+    return (
+      <li className="card">
+        {content}
+      </li>
+    )
   }
 </script>
 </body>
