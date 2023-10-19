@@ -7,31 +7,27 @@
   <script src="./vendor/react.development.js"></script>
   <script src="./vendor/react-dom.development.js"></script>
   <script src="./vendor/babel.min.js"></script>
-  <!--подключите файл данных-->
+  <script src="./data.js"></script>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
   const container = document.getElementById('root');
   const root = ReactDOM.createRoot(container);
-  root.render(<App/>)
+  root.render(<App words={words}/>)
 
-  function App() {
+  function App({words = []}) {
+    const cards = words.map((item) => (
+      <Card
+        type={item.type}
+        url={item.url}
+        text={item.word}
+      />
+    ));
     return (
       <section className="game">
         <ul className="cards">
-          <Card type="text" text="Kannettava"/>
-          <Card type="image" url="./img/photo-card-5.jpg"/>
-          <Card type="image" url="./img/photo-card-6.jpg"/>
-          <Card type="image" url="./img/photo-card-1.jpg"/>
-          <Card type="text" text="Vuode"/>
-          <Card type="text" text="Talo"/>
-          <Card type="text" text="Koira"/>
-          <Card type="text" text="Teekannu"/>
-          <Card type="image" url="./img/photo-card-2.jpg"/>
-          <Card type="image" url="./img/photo-card-3.jpg"/>
-          <Card type="image" url="./img/photo-card-4.jpg"/>
-          <Card type="text" text="Kuuloke"/>
+          {cards}
         </ul>
       </section>
     );

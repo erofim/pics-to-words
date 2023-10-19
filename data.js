@@ -72,5 +72,3 @@ const words = [
     type: 'image'
   }
 ];
-
-window.words = words;
